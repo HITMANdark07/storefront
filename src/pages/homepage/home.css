@@ -1,0 +1,14 @@
+.app {
+    overflow-x: hidden;
+}
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.head{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}

@@ -1,0 +1,21 @@
+.root{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow: hidden;
+  overflow-x: hidden;
+  max-width: 100%;
+  background-color: white;
+  margin-top: 55px;
+  -ms-overflow-style: none;
+}
+
+.root::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE and Edge */
+.imgborder{
+  border-radius: 15%;
+  box-shadow: black;
+}

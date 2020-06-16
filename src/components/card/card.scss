@@ -1,0 +1,268 @@
+@import url('https://fonts.googleapis.com/css?family=Abel');
+
+$bodyBg: #dbdbdb;
+$font: 'Abel', sans-serif;
+$cardShadow: 5px 5px 25px rgba(0,0,0,0.4);
+$borderRadius: 15px;
+
+body {
+  font-family: $font;
+  font-weight: bold;
+  display: flex;
+  align-self: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.card {
+  width: 220px;
+  height: 320px;
+  margin: 5px;
+  cursor: pointer;
+  border-radius: $borderRadius;
+  -webkit-box-shadow: $cardShadow;
+  -moz-box-shadow: $cardShadow;
+  box-shadow: $cardShadow;
+  position: relative;
+  
+  .card-menu {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .card-menu > i:nth-of-type(1) {
+    color: white;
+    font-size: 22px;
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    cursor: pointer;
+  }
+  
+  .card-menu > i:nth-of-type(2) {
+    color: white;
+    font-size: 22px;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  & > span {
+    margin: auto;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    font-size: 32px;
+    color: white;
+    text-align: center;
+  }
+  
+  & > i {
+    color: white;
+    font-size: 290px;
+    margin: auto;
+    position: absolute;
+    top: 105px;
+    right: 0;
+    left: 0;
+    z-index: 999;
+    filter: drop-shadow(5px 5px 10px rgba(0,0,0,0.4));
+    text-align: center;
+    font-weight: normal;
+  }
+  
+  & > span, & > i {
+    animation: delayChildBack 300ms;
+  }
+  
+  .card-menu > i:nth-of-type(1), .card-menu > i:nth-of-type(2), .card-btn {
+    animation: delayChildEaseBack 300ms;
+  }
+}
+
+
+@keyframes delayChild {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(23px);
+  }
+  50% {
+    transform: translateX(46px);
+  }
+  75% {
+    transform: translateX(23px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes delayChildEase {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(10px);
+  }
+  50% {
+    transform: translateX(20px);
+  }
+  75% {
+    transform: translateX(10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes delayChildBack {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-23px);
+  }
+  50% {
+    transform: translateX(-46px);
+  }
+  75% {
+    transform: translateX(-23px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes delayChildEaseBack {
+  0% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-10px);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  75% {
+    transform: translateX(-10px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+  
+.card-footer {
+  width: 100%;
+  height: 124px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background-color: white;
+  border-bottom-right-radius: $borderRadius;
+  border-bottom-left-radius: $borderRadius;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-flow: row wrap;
+}
+
+.card-btn {
+  width: 140px;
+  height: 30px;
+  border: 2px solid #ff4c4c;
+  border-radius: $borderRadius;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ff4c4c;
+  position: relative;
+  z-index: 2;
+  cursor: pointer;
+  
+  & > span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    opacity: 0;
+    transition: opacity ease 200ms;
+    z-index: 2;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #ff4c4c;
+    border-radius: $borderRadius - 5px;
+    transform: scaleX(0);
+    transition: transform ease 200ms;
+    z-index: 0;
+  }
+  
+  &:hover {
+    & > span {
+      opacity: 1;
+      animation: btnPop 200ms 100ms;
+    }
+  }
+  
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes btnPop {
+  25% {
+    transform: scale(0.6,1.4);
+  }
+  50% {
+    transform: scale(1.25,0.75);
+  }
+  75% {
+    transform: scale(0.85,1.15);
+  }
+  100% {
+    transform: scale(1,1);
+  }
+}
+
+.price{
+    width: 60px;
+    height: 22px;
+    align-items: center;
+    background-color: #A7D751;
+    border-radius: 5px;
+    stroke-width: 2px;
+    stroke: darken($color: #000000, $amount: 0);
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+.badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-bottom: 10;
+    text-align: 'center'
+}
